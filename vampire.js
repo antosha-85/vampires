@@ -17,7 +17,7 @@ class Vampire {
   // Returns the total number of vampires created by that vampire
   get numberOfOffspring() {
     return this.offspring.length;
-    
+
   }
 
   // Returns the number of vampires away from the original vampire this vampire is
@@ -34,7 +34,7 @@ class Vampire {
 
   // Returns true if this vampire is more senior than the other vampire. (Who is closer to the original vampire)
   isMoreSeniorThan(vampire) {
-    if(this.numberOfVampiresFromOriginal < vampire.numberOfVampiresFromOriginal) {
+    if (this.numberOfVampiresFromOriginal < vampire.numberOfVampiresFromOriginal) {
       return true;
     } return false;
   }
@@ -47,24 +47,25 @@ class Vampire {
       return this;
     } else {
       for (const childNode of this.offspring) {
-        if (childNode.name === name) {
-          return this
-        } else {
-          childNode.vampireWithName(name)
+        childNode.vampireWithName(name);
+        const vampWithName = childNode.vampireWithName(name);
+        if (vampWithName) {
+          return vampWithName;
         }
       }
+      return null;
     }
-    return null;
   }
+
 
   // Returns the total number of vampires that exist
   get totalDescendents() {
-    
+
   }
 
   // Returns an array of all the vampires that were converted after 1980
   get allMillennialVampires() {
-    
+
   }
 
   /** Stretch **/
